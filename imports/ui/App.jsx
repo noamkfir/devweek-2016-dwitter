@@ -1,4 +1,5 @@
 import React from 'react';
+import DweetList from './DweetList';
 
 export default class App extends React.Component {
     render() {
@@ -9,9 +10,7 @@ export default class App extends React.Component {
                     <section>
                         <h2>New Dweet</h2>
                     </section>
-                    <section>
-                        <h2>All Dweets</h2>
-                    </section>
+                    <DweetList />
                 </main>
             </div>
         );
