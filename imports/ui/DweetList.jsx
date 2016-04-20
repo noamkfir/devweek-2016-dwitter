@@ -1,16 +1,12 @@
 import React from 'react';
 import reactMixin from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
+import { Dweets } from '../api/model/Dweets';
 
 export default class DweetList extends React.Component {
     getMeteorData() {
         return {
-            dweets: [
-                {
-                    content: 'It\'s just a flesh wound!',
-                    created: new Date()
-                }
-            ]
+            dweets: Dweets.find().fetch()
         };
     }
 
