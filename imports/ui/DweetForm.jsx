@@ -12,11 +12,15 @@ export default class DweetForm extends React.Component {
         this.setState({content});
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
+
         const created = new Date();
         const {content} = this.state;
         const dweet = {content, created};
         Dweets.insert(dweet);
+
+        this.setState({content: ''});
     }
 
     render() {
