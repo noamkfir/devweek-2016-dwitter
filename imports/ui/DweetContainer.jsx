@@ -14,6 +14,8 @@ export default class DweetContainer extends React.Component {
     }
     
     addDweet(dweet) {
+        dweet.creator = Meteor.userId();
+        dweet.username = Meteor.user().username;
         Dweets.insert(dweet);
     }
 

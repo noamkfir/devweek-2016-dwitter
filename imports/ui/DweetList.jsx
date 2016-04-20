@@ -13,7 +13,7 @@ export default class DweetList extends React.Component {
                             const time = moment(dweet.created);
                             return (
                                 <li key={index}>
-                                    <div className="message">{dweet.content}</div>
+                                    <div className="message">{dweet.username}: {dweet.content}</div>
                                     <time
                                         dateTime={dweet.created.toISOString()}
                                         title={time.format('llll')}
