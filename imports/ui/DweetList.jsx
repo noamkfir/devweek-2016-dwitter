@@ -5,8 +5,9 @@ import { Dweets } from '../api/model/Dweets';
 
 export default class DweetList extends React.Component {
     getMeteorData() {
+        const sort = {created: -1};
         return {
-            dweets: Dweets.find().fetch()
+            dweets: Dweets.find({}, {sort}).fetch()
         };
     }
 
