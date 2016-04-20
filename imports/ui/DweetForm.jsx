@@ -1,5 +1,4 @@
 import React from 'react';
-import { Dweets } from '../api/model/Dweets';
 
 export default class DweetForm extends React.Component {
     constructor() {
@@ -18,7 +17,7 @@ export default class DweetForm extends React.Component {
         const created = new Date();
         const {content} = this.state;
         const dweet = {content, created};
-        Dweets.insert(dweet);
+        this.props.addDweet(dweet);
 
         this.setState({content: ''});
     }

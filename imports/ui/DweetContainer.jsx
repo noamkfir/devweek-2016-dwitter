@@ -12,11 +12,15 @@ export default class DweetContainer extends React.Component {
             dweets: Dweets.find({}, {sort}).fetch()
         };
     }
+    
+    addDweet(dweet) {
+        Dweets.insert(dweet);
+    }
 
     render() {
         return (
             <div>
-                <DweetForm />
+                <DweetForm addDweet={this.addDweet} />
                 <DweetList dweets={this.data.dweets} />
             </div>
         );
