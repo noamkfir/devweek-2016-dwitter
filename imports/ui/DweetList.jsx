@@ -1,15 +1,6 @@
 import React from 'react';
-import reactMixin from 'react-mixin';
-import { ReactMeteorData } from 'meteor/react-meteor-data';
-import { Dweets } from '../api/model/Dweets';
 
 export default class DweetList extends React.Component {
-    getMeteorData() {
-        const sort = {created: -1};
-        return {
-            dweets: Dweets.find({}, {sort}).fetch()
-        };
-    }
 
     render() {
         return (
@@ -17,7 +8,7 @@ export default class DweetList extends React.Component {
                 <h2>All Dweets</h2>
                 <ul>
                     {
-                        this.data.dweets.map((dweet, index) => {
+                        this.props.dweets.map((dweet, index) => {
                             return (
                                 <li key={index}>
                                     <div className="message">{dweet.content}</div>
@@ -32,5 +23,3 @@ export default class DweetList extends React.Component {
         );
     }
 }
-
-reactMixin(DweetList.prototype, ReactMeteorData);
