@@ -1,6 +1,5 @@
 import React from 'react';
-import DweetForm from './DweetForm';
-import DweetList from './DweetList';
+import DweetContainer from './DweetContainer';
 
 export default class App extends React.Component {
     render() {
@@ -8,8 +7,7 @@ export default class App extends React.Component {
             <div>
                 <h1>dwitter</h1>
                 <main>
-                    <DweetForm />
-                    <DweetList />
+                    <DweetContainer />
                 </main>
             </div>
         );
