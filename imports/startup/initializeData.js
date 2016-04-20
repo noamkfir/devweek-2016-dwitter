@@ -5,7 +5,8 @@ Meteor.startup(() => {
     if(Dweets.find().count() === 0) {
         Dweets.insert({
             content: 'Nobody expects the Spanish Inquisition',
-            created: new Date()
+            created: new Date(),
+            username: 'Ximinez'
         });
     }
 });
