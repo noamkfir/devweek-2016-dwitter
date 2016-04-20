@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 export default class DweetList extends React.Component {
 
@@ -9,11 +10,16 @@ export default class DweetList extends React.Component {
                 <ul>
                     {
                         this.props.dweets.map((dweet, index) => {
+                            const time = moment(dweet.created);
                             return (
                                 <li key={index}>
                                     <div className="message">{dweet.content}</div>
                                     <time
-                                        dateTime={dweet.created.toISOString()}>{dweet.created.toLocaleString('en-GB')}</time>
+                                        dateTime={dweet.created.toISOString()}
+                                        title={time.format('llll')}
+                                    >
+                                        {time.fromNow()}
+                                    </time>
                                 </li>
                             );
                         })
