@@ -9,10 +9,11 @@ export default class DweetContainer extends React.Component {
     getMeteorData() {
         const sort = {created: -1};
         return {
-            dweets: Dweets.find({}, {sort}).fetch()
+            dweets: Dweets.find({}, {sort}).fetch(),
+            user: Meteor.user()
         };
     }
-    
+
     addDweet(dweet) {
         dweet.creator = Meteor.userId();
         dweet.username = Meteor.user().username;
@@ -22,7 +23,11 @@ export default class DweetContainer extends React.Component {
     render() {
         return (
             <div>
-                <DweetForm addDweet={this.addDweet} />
+                {
+                    this.data.user
+                        ? <DweetForm addDweet={this.addDweet} />
+                        : <div>Sign in to dweet!</div>
+                }
                 <DweetList dweets={this.data.dweets} />
             </div>
         );
